@@ -1,0 +1,29 @@
+{
+  "name": "mean-todo-app",
+  "version": "1.0.0",
+  "description": "MEAN to do app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andersonmcook/mean-todo-app.git"
+  },
+  "keywords": [],
+  "author": "Anderson Cook <andersonmcook@gmail.com> (https://github.com/andersonmcook)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andersonmcook/mean-todo-app/issues"
+  },
+  "homepage": "https://github.com/andersonmcook/mean-todo-app#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.2.2",
+    "babel-preset-es2015": "^6.3.13",
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
