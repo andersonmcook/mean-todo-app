@@ -10,8 +10,9 @@ app.all('/*', (req, res) => {
     <html>
       <head>
         <title>MEAN To-Do App</title>
+        <base href="/">
         <body>
-          <h1>Hello World</h1>
+          <div ui-view></div>
           <script src="bundle.js"></script>
         </body>
       </head>

@@ -1,5 +1,6 @@
 'use strict';
 
-const message = 'Hello from the entry file!!!';
+import angular from 'angular';
+import appModule from 'config';
 
-console.log(message);
+angular.bootstrap(document, [appModule.name]);
