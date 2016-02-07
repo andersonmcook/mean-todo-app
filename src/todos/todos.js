@@ -1,6 +1,7 @@
 import _ from 'lodash';
 
-export default function ($scope) {
+export default function ($scope, todoFactory) {
+
   let params = {
     createHasInput: false
   };
@@ -29,10 +30,7 @@ export default function ($scope) {
   };
 
 // saves updated task
-  $scope.updateTask = todo => {
-    todo.task = todo.updatedTask;
-    todo.isEditing = false;
-  };
+  $scope.updateTask = _.partial(todoFactory.updateTask);
 
 // edit a task
   $scope.onEditClick = todo => {
@@ -41,26 +39,11 @@ export default function ($scope) {
   };
 
 // delete a task
-  $scope.deleteTask = todoToDelete => {
-    _.remove($scope.todos, todo => todo.task === todoToDelete.task);
-  };
+  $scope.deleteTask = _.partial(todoFactory.deleteTask, $scope);
 
 // create a new task
-  $scope.createTask = () => {
-    params.createHasInput = false;
-    $scope.createTaskInput = '';
-  };
+  $scope.createTask = _.partial(todoFactory.createTask, $scope, params);
 
 // watch input for two way binding
-  $scope.$watch('createTaskInput', val => {
-    if (!val && params.createHasInput) {
-      $scope.todos.pop();
-      params.createHasInput = false;
-    } else if (val && !params.createHasInput) {
-      $scope.todos.push({task: val, isCompleted: false});
-      params.createHasInput = true;
-    } else if (val && params.createHasInput) {
-      $scope.todos[$scope.todos.length - 1].task = val;
-    }
-  });
+  $scope.$watch('createTaskInput', _.partial(todoFactory.watchCreateTaskInput, $scope, params));
 };
