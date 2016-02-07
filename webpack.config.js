@@ -15,7 +15,7 @@ module.exports = {
   },
   resolve: {
     modulesDirectories: ['node_modules', 'src'],
-    extension: ['', '.js']
+    extension: ['', '.js', '.scss']
   },
   module: {
     loaders:
@@ -31,6 +31,15 @@ module.exports = {
         {
           test: /\.html$/,
           loader: 'raw'
+        },
+        {
+          test: /\.scss$/,
+          loaders: [
+            'style',
+            'css',
+            'autoprefixer?browsers=last 3 versions',
+            'sass?outputStyle=expanded'
+          ]
         }
       ]
     },
