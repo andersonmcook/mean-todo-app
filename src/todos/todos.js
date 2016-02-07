@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export default function ($scope) {
   let params = {
     createHasInput: false
@@ -36,6 +38,11 @@ export default function ($scope) {
   $scope.onEditClick = todo => {
     todo.isEditing = true;
     todo.updatedTask = todo.task;
+  };
+
+// delete a task
+  $scope.deleteTask = todoToDelete => {
+    _.remove($scope.todos, todo => todo.task === todoToDelete.task);
   };
 
 // create a new task
