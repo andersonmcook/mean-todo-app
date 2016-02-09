@@ -2,8 +2,11 @@
 
 const express = require('express');
 const app = express();
+const routes = require('./server/todos/routes');
 
 const PORT = process.env.PORT || 3000;
+
+routes(app);
 
 app.all('/*', (req, res) => {
   res.send(`

@@ -1,6 +1,8 @@
 import _ from 'lodash';
 
 export default function ($scope, todoFactory) {
+  
+  const { updateTask, deleteTask, createTask, watchCreateTaskInput } = todoFactory;
 
   let params = {
     createHasInput: false
@@ -30,7 +32,7 @@ export default function ($scope, todoFactory) {
   };
 
 // saves updated task
-  $scope.updateTask = _.partial(todoFactory.updateTask);
+  $scope.updateTask = _.partial(updateTask);
 
 // edit a task
   $scope.onEditClick = todo => {
@@ -39,11 +41,11 @@ export default function ($scope, todoFactory) {
   };
 
 // delete a task
-  $scope.deleteTask = _.partial(todoFactory.deleteTask, $scope);
+  $scope.deleteTask = _.partial(deleteTask, $scope);
 
 // create a new task
-  $scope.createTask = _.partial(todoFactory.createTask, $scope, params);
+  $scope.createTask = _.partial(createTask, $scope, params);
 
 // watch input for two way binding
-  $scope.$watch('createTaskInput', _.partial(todoFactory.watchCreateTaskInput, $scope, params));
+  $scope.$watch('createTaskInput', _.partial(watchCreateTaskInput, $scope, params));
 };
