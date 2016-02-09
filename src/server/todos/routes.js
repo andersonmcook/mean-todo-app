@@ -7,13 +7,4 @@ router.get('/', function (req, res) {
   res.send('HELLO FROM /TODOS');
 });
 
-router.post('/', (req, res) => {
-  var todo = new Todo(req.body);
-  todo.save(function (err) {
-    if (err) {
-      console.log(err);
-    }
-  });
-});
-
 module.exports = router;

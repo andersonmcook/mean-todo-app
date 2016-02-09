@@ -2,9 +2,11 @@
 
 const express = require('express');
 const app = express();
-const routes = require('./server/todos/routes');
-
+const bodyParser = require('body-parser');
+const routes = require('server/routes');
 const PORT = process.env.PORT || 3000;
+
+app.use(bodyParser.json());
 
 routes(app);
 
