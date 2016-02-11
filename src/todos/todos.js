@@ -5,18 +5,18 @@ export default function($scope, todoFactory) {
         createHasInput: false
     };
 
-    $scope.todos = [
-    {
-        task: 'do dishes',
-        isCompleted: false,
-        isEditing: false
-    },
-    {
-        task: 'walk the dog',
-        isCompleted: true,
-        isEditing: false
-    }
-    ];
+    // $scope.todos = [
+    // {
+    //     task: 'do dishes',
+    //     isCompleted: false,
+    //     isEditing: false
+    // },
+    // {
+    //     task: 'walk the dog',
+    //     isCompleted: true,
+    //     isEditing: false
+    // }
+    // ];
 
     todoFactory.getTasks($scope);
 
